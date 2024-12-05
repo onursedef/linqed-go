@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"github.com/onursedef/linqed-go/src"
+	"github.com/onursedef/linqed-go"
 	"reflect"
 	"testing"
 )

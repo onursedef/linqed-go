@@ -2,6 +2,7 @@ package linqed_go
 
 import "fmt"
 
+// Distinct returns a new collection with duplicates removed
 func (q *Queryable[T]) Distinct() *Queryable[T] {
 	seen := make(map[string]bool)
 	var result []T

@@ -9,10 +9,12 @@ func (q *Queryable[T]) Sum() float64 {
 	return sum
 }
 
+// Count returns the number of elements in the collection
 func (q *Queryable[T]) Count() int {
 	return len(q.items)
 }
 
+// Max returns the maximum value in the collection
 func (q *Queryable[T]) Max() (max float64) {
 	if len(q.items) > 0 {
 		max = numeric(q.items[0])
@@ -25,6 +27,7 @@ func (q *Queryable[T]) Max() (max float64) {
 	return max
 }
 
+// Min returns the minimum value in the collection
 func (q *Queryable[T]) Min() (min float64) {
 	if len(q.items) > 0 {
 		min = numeric(q.items[0])
@@ -37,6 +40,7 @@ func (q *Queryable[T]) Min() (min float64) {
 	return min
 }
 
+// Average returns the average of all numeric elements in the collection
 func (q *Queryable[T]) Average() (average float64) {
 	sum := q.Sum()
 	count := q.Count()
@@ -44,6 +48,7 @@ func (q *Queryable[T]) Average() (average float64) {
 	return sum / float64(count)
 }
 
+// Aggregate applies an accumulator function over the collection.
 func (q *Queryable[T]) Aggregate(accumulator func(T, T) T) (result T) {
 	if len(q.items) == 0 {
 		var zero T
@@ -58,6 +63,7 @@ func (q *Queryable[T]) Aggregate(accumulator func(T, T) T) (result T) {
 	return result
 }
 
+// All determines whether all elements of a collection satisfy a condition.
 func numeric(item any) float64 {
 	switch v := any(item).(type) {
 	case int:

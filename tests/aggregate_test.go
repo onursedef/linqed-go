@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"github.com/onursedef/linqed-go/src"
+	"github.com/onursedef/linqed-go"
 	"testing"
 )
 
@@ -33,14 +33,14 @@ func TestMinMax(t *testing.T) {
 	items := []int{1, 2, 3, 4, 5}
 	query := linqed_go.From(items)
 
-	min := query.Min()
-	max := query.Max()
+	_min := query.Min()
+	_max := query.Max()
 
-	if min != 1 {
-		t.Errorf("Expected 1, got %v", min)
+	if _min != 1 {
+		t.Errorf("Expected 1, got %v", _min)
 	}
 
-	if max != 5 {
-		t.Errorf("Expected 5, got %v", max)
+	if _max != 5 {
+		t.Errorf("Expected 5, got %v", _max)
 	}
 }
