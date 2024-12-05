@@ -1,5 +1,5 @@
 # LINQed-Go
-[![Go Reference](https://pkg.go.dev/badge/github.com/onursedef/linqed-go.svg)](https://pkg.go.dev/github.com/onursedef/linqed-go)
+[![Go Reference](https://pkg.go.dev/badge/github.com/onursedef/linqed-go.svg)](https://pkg.go.dev/github.com/onursedef/linqed-go) [![Coverage Status](https://coveralls.io/repos/github/onursedef/linqed-go/badge.svg?branch=main)](https://coveralls.io/github/onursedef/linqed-go?branch=main) [![Go Report Card](https://goreportcard.com/badge/github.com/onursedef/linqed-go)](https://goreportcard.com/report/github.com/onursedef/linqed-go)
 
 `LINQed-Go` is a lightweight Go package that brings LINQ-like functionality to Go, allowing you to perform common operations like filtering, projecting, ordering, and joining on collections in a fluent, method-chaining style.
 
