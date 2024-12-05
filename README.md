@@ -54,17 +54,14 @@ func main() {
 	}
 
 	// Create a queryable collection
-	query := linqed_go.From(people)
+	query := linqed_go.From(people).Where(func(p Person) bool {
+        return p.Age >= 30
+    })
 
 	// Example of Where and Select methods
-	result := query.
-		Where(func(p Person) bool {
-			return p.Age >= 30
-		}).
-		Select(func(p Person) string {
-			return p.Name
-		}).
-		Iterate()
+	result := linqed_go.Select(query, func(p Person) string {
+        return p.Name
+    }).Iterate()
 
 	fmt.Println(result) // Output: [John Jack]
 }
@@ -101,6 +98,7 @@ Filters the collection based on a predicate function.
 func (q *Queryable[T]) Select(projection func(T) any) *Queryable[T]
 ```
 Projects each item in the collection into a new form.
+**Note:** This method is not chainable.
 
 ### OrderBy
 ```go
@@ -125,6 +123,7 @@ Takes the first `count` elements from the collection.
 func Join[T, U any, K comparable, R any](q *Queryable[T], other []U, keySelector func(T) K, otherKeySelector func(U) K, resultSelector func(T, U) R) *Queryable[R]
 ```
 Performs an inner join between two collections based on a key.
+**Note:** This method is not chainable.
 
 ### First
 ```go
