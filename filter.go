@@ -3,6 +3,7 @@ package linqed_go
 // Where filters the collection based on a predicate
 func (q *Queryable[T]) Where(predicate func(T) bool) *Queryable[T] {
 	q.filters = append(q.filters, predicate)
+	q.items = q.Iterate()
 	return q
 }
 
