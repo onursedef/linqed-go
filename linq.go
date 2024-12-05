@@ -14,7 +14,7 @@ type Queryable[T any] struct {
 	// sorter is the comparator to sort
 	sorter func(i, j T) bool
 	// projection is the projection function
-	projection func(T) any
+	projection func(T) T
 	// skip is the number of elements to skip
 	skip int
 	// take is the number of elements to take
@@ -31,7 +31,7 @@ func From[T any](items []T) *Queryable[T] {
 }
 
 // Iterate returns the items in the collection
-func (q *Queryable[T]) Iterate() []any {
+func (q *Queryable[T]) Iterate() []T {
 	var filtered []T
 	for _, item := range q.items {
 		pass := true
@@ -61,7 +61,7 @@ func (q *Queryable[T]) Iterate() []any {
 		filtered = filtered[:q.take]
 	}
 
-	var result []any
+	var result []T
 	for _, item := range filtered {
 		if q.projection != nil {
 			result = append(result, q.projection(item))
