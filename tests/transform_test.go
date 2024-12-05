@@ -24,12 +24,12 @@ func TestSelect(t *testing.T) {
 	})
 
 	// Use the Select method to project Name field after filtering
-	result := query.Select(func(p person) any {
+	result := linqed_go.Select(query, func(p person) string {
 		return p.Name
 	}).Iterate()
 
 	// Expected result: a list of names of people who are 30 or older
-	expected := []any{"John", "Jack"}
+	expected := []string{"John", "Jack"}
 
 	// Check if the lengths are equal
 	if len(result) != len(expected) {

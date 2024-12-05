@@ -12,7 +12,7 @@ func TestConcat(t *testing.T) {
 	query := linqed_go.From(items1)
 
 	result := query.Concat(items2).Iterate()
-	expected := []any{1, 2, 3, 4, 5, 6}
+	expected := []int{1, 2, 3, 4, 5, 6}
 	if len(result) != len(expected) {
 		t.Errorf("Expected %v, got %v", expected, result)
 	}

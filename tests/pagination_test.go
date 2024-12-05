@@ -16,7 +16,7 @@ func TestSkip(t *testing.T) {
 		t.Errorf("Expected 3 items, got %d", len(result))
 	}
 
-	expected := []any{3, 4, 5}
+	expected := []int{3, 4, 5}
 
 	if !reflect.DeepEqual(result, expected) {
 		t.Errorf("Expected %v, got %v", expected, result)
@@ -33,7 +33,7 @@ func TestTake(t *testing.T) {
 		t.Errorf("Expected 2 items, got %d", len(result))
 	}
 
-	expected := []any{1, 2}
+	expected := []int{1, 2}
 
 	if !reflect.DeepEqual(result, expected) {
 		t.Errorf("Expected %v, got %v", expected, result)
